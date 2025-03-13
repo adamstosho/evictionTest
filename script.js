@@ -161,7 +161,7 @@ const myBabe =  () => {
 
   // const  gloal 
   //b. local scope  - local scope only allow are variables to be declared inside the function, i.e. after function declaration 
-  //c. lexical scope - 
+  //c. lexical scope - enables us to nest functions inside functions and this accept both local and the global variable.
 
   // examples of scope 
 

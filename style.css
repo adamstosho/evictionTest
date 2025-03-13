@@ -1,0 +1,14 @@
+#mainContainer{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+#secondContainer{
+  background-color: rgb(219, 122, 122);
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+}

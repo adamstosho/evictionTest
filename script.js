@@ -8,7 +8,6 @@
   // question 2
   const words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
 const wordsCount = words.reduce((a, b) => { a[b] = (a[b] || 0) + 1;
-
   return a
 }, [])
 console.log({wordsCount}) 
@@ -123,7 +122,7 @@ console.log(studentNamesInUppercase);
       console.error(error.message);
     }
   }
-
+  calculateAverage("Ali")
 
 
 

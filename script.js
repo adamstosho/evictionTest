@@ -1,16 +1,17 @@
-  // Question 1
-  const names = ['Ali', 'Aisha', 'Omar', 'Fatima', 'Amir'];
+// Question 1
+const names = ['Ali', 'Aisha', 'Omar', 'Fatima', 'Amir'];
 
-  const namesWithA = names.filter(name => name.startsWith("A"));
-  console.log(namesWithA);
+const namesWithA = names.filter(name => name.startsWith("A"));
+console.log(namesWithA);
 
-  
-  // question 2
-  const words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
-const wordsCount = words.reduce((a, b) => { a[b] = (a[b] || 0) + 1;
+
+// question 2
+const words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+const wordsCount = words.reduce((a, b) => {
+  a[b] = (a[b] || 0) + 1;
   return a
 }, [])
-console.log({wordsCount}) 
+console.log({ wordsCount })
 
 
 // Question 3
@@ -66,10 +67,10 @@ orderFood(() => {
 
 // question 4
 const studentCredentials = [
-  {name: "Adam", score: 99, passed: true},
-  {name: "Josh", score: 76, passed: true},
-  {name: "Rahman", score: 39, passed: false},
-  {name: "Jerry", score: 60, passed: true}
+  { name: "Adam", score: 99, passed: true },
+  { name: "Josh", score: 76, passed: true },
+  { name: "Rahman", score: 39, passed: false },
+  { name: "Jerry", score: 60, passed: true }
 ]
 
 // forEach Method of Iteration 
@@ -79,8 +80,9 @@ studentCredentials.forEach((value) => {
 })
 
 // map method for iteration
-const studentNamesInUppercase = studentCredentials.map((value) => { return value.name.toUpperCase()
-}) 
+const studentNamesInUppercase = studentCredentials.map((value) => {
+  return value.name.toUpperCase()
+})
 console.log(studentNamesInUppercase);
 
 //filter method of iteration 
@@ -91,82 +93,82 @@ console.log(studentNamesInUppercase);
 // console.log(passedStudents)
 
 
-  // Question 2: 
-  
-  const students = {
-    Ali: [85, 90, 78],
-    Aisha: [92, 88, 84],
-    Omar: [79, 85, 80],
-    Fatima: [91, 89, 95],
-    Amir: []
-  };
+// Question 2: 
 
-  function getStudentScores(name) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (students[name] !== undefined) {
-          resolve(students[name]);
-        } else {
-          reject(new Error('Student not found'));
-        }
-      }, 2000);
-    });
+const students = {
+  Ali: [85, 90, 78],
+  Aisha: [92, 88, 84],
+  Omar: [79, 85, 80],
+  Fatima: [91, 89, 95],
+  Amir: []
+};
+
+function getStudentScores(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (students[name] !== undefined) {
+        resolve(students[name]);
+      } else {
+        reject(new Error('Student not found'));
+      }
+    }, 2000);
+  });
+}
+
+async function calculateAverage(name) {
+  try {
+    const scores = await getStudentScores(name);
+    const average = scores.reduce((a, b) => a + b, 0) / scores.length;
+    console.log(`Average score for ${name}: ${average}`);
+  } catch (error) {
+    console.error(error.message);
   }
-
-  async function calculateAverage(name) {
-    try {
-      const scores = await getStudentScores(name);
-      const average = scores.reduce((a, b) => a + b, 0) / scores.length;
-      console.log(`Average score for ${name}: ${average}`);
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
-  calculateAverage("Ali")
+}
+calculateAverage("Ali")
 
 
 
 
-  // 1. Functions are reusuable blocks of codes which can be achieved following the method:- 
-  // a. function declaration
-  // b. function with expression
-  //c. arrow functions
+// 1. Functions are reusuable blocks of codes which can be achieved following the method:- 
+// a. function declaration
+// b. function with expression
+//c. arrow functions
 
-  // Function Declaration Example
+// Function Declaration Example
 
-function myName (){
+function myName() {
   return "Hello World!"
 }
 
 // Function with Expressions Example
-const myLife = function() {
+const myLife = function () {
   return "Hello World!"
 }
 
 
 // Arrow Function Example
-const myBabe =  () => {
+const myBabe = () => {
   return "Hello World!"
 }
 
 
 
-  // 2. what are scopes
-  // Give the different types of scopes and their differences with examples
-  
-  // Scopes determine where/how our codes are accessible based on the set functions. 
-  // types of scopes include: - 
-  //a. global scope - global scope allow our variables to be declared before the function is declared, ensuring the variable is accessible by all.
+// 2. what are scopes
+// Give the different types of scopes and their differences with examples
 
-  // const  gloal 
-  //b. local scope  - local scope only allow are variables to be declared inside the function, i.e. after function declaration 
-  //c. lexical scope - enables us to nest functions inside functions and this accept both local and the global variable.
+// Scopes determine where/how our codes are accessible based on the set functions. 
+// types of scopes include: - 
+//a. global scope - global scope allow our variables to be declared before the function is declared, ensuring the variable is accessible by all.
 
-  // examples of scope 
+// const  gloal 
+//b. local scope  - local scope only allow are variables to be declared inside the function, i.e. after function declaration 
+//c. lexical scope - enables us to nest functions inside functions and this accept both local and the global variable.
 
-  let globalVar = "Example of scope"
+// examples of scope 
 
-function globalScope(){
+let globalVar = "Example of scope"
+
+function globalScope() {
   console.log(globalVar)
 }
 globalScope()
@@ -174,7 +176,7 @@ globalScope()
 
 // LOCAL SCOPE
 
-function localScope(){
+function localScope() {
   let localVar = "check me for local scope"
   console.log(localVar)
 }
@@ -182,12 +184,12 @@ localScope()
 
 
 // lexical scope
-function first(){
+function first() {
   let outerVar = "I am a lexcial scope";
-  
-  function second(){
-    
-    function third(){
+
+  function second() {
+
+    function third() {
       console.log(outerVar)
     }
     third()
@@ -198,23 +200,23 @@ first()
 
 
 
-  3. 
-  const articles = [
-    {
-        title: "The Future of Web3",
-        content: "Web3 is revolutionizing the internet by enabling decentralized applications and blockchain-based solutions.",
-        author: "Alice Johnson"
-    },
-    {
-        title: "Understanding JavaScript Closures",
-        content: "Closures allow functions to access variables from an outer function even after the outer function has executed.",
-        author: "David Smith"
-    },
-    {
-        title: "AI in Healthcare",
-        content: "Artificial Intelligence is transforming healthcare through improved diagnostics, personalized medicine, and robotic surgeries.",
-        author: "Sophia Williams"
-    }
+3.
+const articles = [
+  {
+    title: "The Future of Web3",
+    content: "Web3 is revolutionizing the internet by enabling decentralized applications and blockchain-based solutions.",
+    author: "Alice Johnson"
+  },
+  {
+    title: "Understanding JavaScript Closures",
+    content: "Closures allow functions to access variables from an outer function even after the outer function has executed.",
+    author: "David Smith"
+  },
+  {
+    title: "AI in Healthcare",
+    content: "Artificial Intelligence is transforming healthcare through improved diagnostics, personalized medicine, and robotic surgeries.",
+    author: "Sophia Williams"
+  }
 ];
 
 
@@ -228,18 +230,3 @@ mainContainer.innerHTML = articles.map(article =>
   </div>
   `
 )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
